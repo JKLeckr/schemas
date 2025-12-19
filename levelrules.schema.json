@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/JKLeckr/schemas/refs/heads/apworld-main/levelrules.schema.json",
+  "$id": "https://raw.githubusercontent.com/JKLeckr/schemas/refs/heads/apworld-v01/levelrules.schema.json",
   "schema_version": "v1",
   "title": "APWorld Level Rules",
   "description": "Schema for defining level rules in an Archipelago APWorld.",
