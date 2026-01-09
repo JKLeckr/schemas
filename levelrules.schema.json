@@ -35,14 +35,16 @@
       "additionalProperties": false
     },
 
-    "depSelector": {
+    "refString": {
       "type": "string",
       "pattern": "^!?[A-Za-z_][A-Za-z0-9_]*$"
     },
 
+    "ruleDep": { "$ref": "#/$defs/refString" },
+
     "whenList": {
       "type": "array",
-      "items": { "$ref": "#/$defs/depSelector" },
+      "items": { "$ref": "#/$defs/ruleDep" },
       "uniqueItems": true
     },
 
@@ -52,7 +54,7 @@
           "type": "object",
           "required": ["rule"],
           "properties": {
-            "rule": { "type": "string" }
+            "rule": { "$ref": "#/$defs/refString" }
           },
           "additionalProperties": false
         },
