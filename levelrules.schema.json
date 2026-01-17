@@ -193,7 +193,7 @@
     "location": {
       "type": "object",
       "properties": {
-        "rule": { "$ref": "#/$defs/ruleContainer" },
+        "rules": { "$ref": "#/$defs/ruleList" },
         "inherit": {
           "type": "string",
           "enum": ["and", "or", "none"]
