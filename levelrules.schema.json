@@ -62,6 +62,20 @@
       "unevaluatedItems": false
     },
 
+    "ruleDefs": {
+      "type": "object",
+      "propertyNames": { "type": "string" },
+      "additionalProperties": { "$ref": "#/$defs/ruleContainer" }
+    },
+
+    "fromExpr": {
+      "type": "object",
+      "properties": {
+        "from": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
     "ruleItemExpr": {
       "oneOf": [
         {
@@ -181,7 +195,12 @@
 
     "ruleList": {
       "type": "array",
-      "items": { "$ref": "#/$defs/ruleFragment" }
+      "items": {
+        "oneOf": [
+          { "$ref": "#/$defs/ruleFragment" },
+          { "$ref": "#/$defs/fromExpr" }
+        ]
+      }
     },
 
     "ruleContainer": {
@@ -209,6 +228,7 @@
       "properties": {
         "access": { "$ref": "#/$defs/ruleContainer" },
         "base": { "$ref": "#/$defs/ruleContainer" },
+        "rule_defs": { "$ref": "#/$defs/ruleDefs" },
         "locations": {
           "type": "object",
           "propertyNames": { "type": "string" },
