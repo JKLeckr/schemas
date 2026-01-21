@@ -207,6 +207,11 @@
       "additionalProperties": false
     },
 
+    "inheritType": {
+      "type": "string",
+      "enum": ["and", "or", "none"]
+    },
+
     "location": {
       "type": "object",
       "properties": {
@@ -219,10 +224,7 @@
             ]
           }
         },
-        "inherit": {
-          "type": "string",
-          "enum": ["and", "or", "none"]
-        }
+        "inherit": { "$ref": "#/$defs/inheritType" }
       },
       "additionalProperties": false
     },
@@ -232,6 +234,7 @@
       "properties": {
         "access": { "$ref": "#/$defs/ruleContainer" },
         "base": { "$ref": "#/$defs/ruleContainer" },
+        "inherit_default": { "$ref": "#/$defs/inheritType" },
         "rule_defs": { "$ref": "#/$defs/ruleDefs" },
         "locations": {
           "type": "object",
