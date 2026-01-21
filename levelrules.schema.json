@@ -70,6 +70,7 @@
 
     "fromExpr": {
       "type": "object",
+      "required": ["from"],
       "properties": {
         "from": { "type": "string" }
       },
@@ -195,12 +196,7 @@
 
     "ruleList": {
       "type": "array",
-      "items": {
-        "oneOf": [
-          { "$ref": "#/$defs/ruleFragment" },
-          { "$ref": "#/$defs/fromExpr" }
-        ]
-      }
+      "items": { "$ref": "#/$defs/ruleFragment" }
     },
 
     "ruleContainer": {
@@ -214,7 +210,15 @@
     "location": {
       "type": "object",
       "properties": {
-        "rules": { "$ref": "#/$defs/ruleList" },
+        "rules": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/$defs/ruleFragment" },
+              { "$ref": "#/$defs/fromExpr" }
+            ]
+          }
+        },
         "inherit": {
           "type": "string",
           "enum": ["and", "or", "none"]
